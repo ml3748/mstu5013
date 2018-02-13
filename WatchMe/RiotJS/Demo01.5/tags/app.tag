@@ -42,7 +42,7 @@
 	</div>
 
 <pre>
-this.stateA = { stateA ? "truthy" : "falsy" };
+this.stateA = { stateA ? "Cat" : "Dog" };
 this.stateB = { stateB };
 this.stateC = { stateC || "no text" };
 this.stateD = { stateD.toUpperCase() };
