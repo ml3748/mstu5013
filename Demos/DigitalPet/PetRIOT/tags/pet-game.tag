@@ -51,6 +51,16 @@
 			this.inPlay = true;
 		}
 
+		/*
+		this.Reset = function(event){
+		this.petHealth = 80;
+		this.petStrength = 0;
+		this.backgroundImg = "";
+		this.userLogs = [];
+		this.inPlay = true;
+	};
+		*/
+
 		feed(event) {
 			this.petHealth = this.petHealth + 10;
 			this.addToLog('Your pet eats and gains health.');
@@ -69,7 +79,7 @@
 		catAttacks() {
 			var randDecimal = Math.random();
 			return randDecimal < 0.5 ? true : false;
-		}
+		}//?????????
 
 		catCombat() {
 			if (this.petStrength > CATSTRENGTH) {
@@ -89,14 +99,14 @@
 				"strong": "pet-strong",
 				"weak": "pet-weak",
 				"exercise": "pet-workout"
-			};
+			}; //(grab the images from IMAGES folder? Certain expression?) What if writing this into 'weak' or 'strong'?
 
 			if (imgMap[imageType] && this.petHealth > 0) {
-				this.petImage = imgMap[imageType];
+				this.petImage = imgMap[imageType]; //???? when the cat appears?
 			} else {
-				if (this.petHealth > (TOTALHEALTH * 0.8)) {
+				if (this.petHealth > (TOTALHEALTH * 0.8)) { //why not just say 80?
 					this.petImage = "pet-0";
-				} else if (this.petHealth > (TOTALHEALTH * 0.6)) {
+				} else if (this.petHealth > (TOTALHEALTH * 0.6)) { //But ">80" includes ">60"
 					this.petImage = "pet-1";
 				} else if (this.petHealth > (TOTALHEALTH * 0.4)) {
 					this.petImage = "pet-2";
@@ -129,7 +139,7 @@
 		}
 
 		resolveOutcomes(event) {
-			if (this.inPlay) {
+			if (this.inPlay) {  // if (true)???
 				if (this.petHealth >= WINHEALTH) {
 					this.updatePetImage('win');
 					this.backgroundImg = "confetti.gif";
@@ -142,12 +152,13 @@
 				}
 			} else {
 				this.updatePetImage();
-			}
+			}  //??what this line for?
 
 			this.setStatBars();
-		}
+		} //sequence?
 
-		this.on('update', function() {
+
+		this.on('update', function() { //???
 
 			this.resolveOutcomes();
 
