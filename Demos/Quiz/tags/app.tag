@@ -3,6 +3,12 @@
 
 	<question each={ quizItem in quizQuestions }></question>
 
+<<<<<<< HEAD
+=======
+	<button type="button" onclick={ getGrade }>FINISH</button>
+
+	<p>You got { grade } correct.</p>
+>>>>>>> upstream/master
 
 	<script>
 		var that = this;
@@ -10,16 +16,19 @@
 
 		this.quizQuestions = [
 			{
+				id: "abc123",
 				question: "What's bigger, the earth or the sun?",
 				choices: [
 					"earth",
 					"sun",
-					"both the same"
+					"both the same",
+					"jupiter"
 				],
 				youtubeID: "Ydfsifdls",
 				answer: "sun"
 			},
 			{
+				id: "def456",
 				question: "Do you believe in God?",
 				choices: [
 					"yes",
@@ -30,6 +39,15 @@
 				answer: "kind of..."
 			}
 		];
+
+		getGrade(e){
+			console.log(this.quizQuestions);
+			var correctItems = this.quizQuestions.filter(function(item) {
+				return item.isCorrect;
+			});
+			console.log("number correct: ", correctItems.length);
+			this.grade = correctItems.length;
+		}
 	</script>
 
 	<style>
