@@ -17,7 +17,8 @@
 		<p>STRENGTH: { petStrength }</p>
 	</div>
 
-	<button onclick={ feed } disabled={ petHealth <= 0 || !inPlay }>FEED PET</button>
+
+	<button onclick={ feed } disabled={ petHealth <= 0 || !inPlay }>FEED PET</button>  <!--if petHealth <= 0 or inplay is false, then disabled the button-->
 	<button onclick={ exercise } disabled={ petHealth <= 0 || !inPlay }>EXERCISE PET</button>
 	<button onclick={ reset } show={ petHealth <= 0 || !inPlay }>RESET</button>
 
@@ -26,7 +27,7 @@
 	<script>
 		var that = this;
 
-		const TOTALHEALTH = 100;
+		const TOTALHEALTH = 100; //在这里设置一个常数是因为好操作。
 		const WINHEALTH = TOTALHEALTH * 1.2;
 		const CATSTRENGTH = 3;
 
@@ -62,9 +63,9 @@
 		*/
 
 		feed(event) {
-			this.petHealth = this.petHealth + 10;
-			this.addToLog('Your pet eats and gains health.');
-		}
+    this.petHealth = this.petHealth + 10;
+    this.addToLog('Your pet eats and gains health.');
+}
 
 		exercise(event) {
 			this.petStrength = this.petStrength + 1;
@@ -79,7 +80,7 @@
 		catAttacks() {
 			var randDecimal = Math.random();
 			return randDecimal < 0.5 ? true : false;
-		}//?????????
+		}//control the 概率
 
 		catCombat() {
 			if (this.petStrength > CATSTRENGTH) {
@@ -99,10 +100,11 @@
 				"strong": "pet-strong",
 				"weak": "pet-weak",
 				"exercise": "pet-workout"
-			}; //(grab the images from IMAGES folder? Certain expression?) What if writing this into 'weak' or 'strong'?
+			};
+			//因为这个已经在<img>里面src被grabbed了。当然也可以直接在这里“images/pet-win.png”
 
 			if (imgMap[imageType] && this.petHealth > 0) {
-				this.petImage = imgMap[imageType]; //???? when the cat appears?
+				this.petImage = imgMap[imageType]; //variable= parameter imageType, argument is the data that is put into this parameter
 			} else {
 				if (this.petHealth > (TOTALHEALTH * 0.8)) { //why not just say 80?
 					this.petImage = "pet-0";
@@ -139,7 +141,7 @@
 		}
 
 		resolveOutcomes(event) {
-			if (this.inPlay) {  // if (true)???
+			if (this.inPlay) {  // if (true)??? true will not become false, changeable
 				if (this.petHealth >= WINHEALTH) {
 					this.updatePetImage('win');
 					this.backgroundImg = "confetti.gif";
@@ -155,18 +157,19 @@
 			}  //??what this line for?
 
 			this.setStatBars();
-		} //sequence?
+		} //happen everytime
 
 
-		this.on('update', function() { //???
+		this.on('update', function() {
 
 			this.resolveOutcomes();
 
 			if (this.petHealth <= 0) {
 				this.inPlay = false;
 			}
-
 		});
+
+		console.log(this);
 
 	</script>
 

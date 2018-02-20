@@ -1,7 +1,8 @@
 <app>
 	<h1>TEST APP QUIZ</h1>
 
-	<question each={ quizQuestions }></question>
+	<question each={ quizItem in quizQuestions }></question>
+
 
 	<script>
 		var that = this;

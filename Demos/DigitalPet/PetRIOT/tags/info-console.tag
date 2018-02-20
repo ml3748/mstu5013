@@ -9,7 +9,6 @@
 
 	<script>
 		var that = this;
-
 		this.logList = [];
 
 		this.on('update', function() {
