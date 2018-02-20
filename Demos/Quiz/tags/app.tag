@@ -2,13 +2,10 @@
 	<h1>TEST APP QUIZ</h1>
 
 	<question each={ quizItem in quizQuestions }></question>
-
-<<<<<<< HEAD
-=======
 	<button type="button" onclick={ getGrade }>FINISH</button>
 
 	<p>You got { grade } correct.</p>
->>>>>>> upstream/master
+
 
 	<script>
 		var that = this;
