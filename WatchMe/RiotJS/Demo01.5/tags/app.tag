@@ -28,7 +28,11 @@
 		</select>
 	</div>
 	<div onchange={ updateStateFPets }>
-		<label>
+		<label each={val, key in stateFPets}>
+			{ key }
+			<input type="checkbox" value={ key } checked={ val }>
+		</label>
+		<!-- <label>
 			Alpaca
 			<input type="checkbox" value="alpaca">
 		</label>
@@ -38,8 +42,8 @@
 		</label>
 		<label>
 			Parrot
-			<input type="checkbox" value="parrot">
-		</label>
+			<input type="checkbox" value="parrotx">
+		</label> -->
 	</div>
 
 <pre>
@@ -69,9 +73,11 @@ this.stateF = alpaca > { stateFPets.alpaca ? "yes" : "no"}
 		this.stateE = "none selected";
 
 		this.stateFPets = {
-			alpaca: false,
+			dog: false,
 			cat: false,
-			parrot: false
+			parrot: false,
+			dragon: false,
+			fish: true
 		}; //电脑咋知道这是上面input的value啊？？？
 
 		this.toggleStateA = function(event){

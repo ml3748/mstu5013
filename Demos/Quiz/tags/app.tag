@@ -2,10 +2,10 @@
 	<h1>TEST APP QUIZ</h1>
 
 	<question each={ quizItem in quizQuestions }></question>
+
 	<button type="button" onclick={ getGrade }>FINISH</button>
 
 	<p>You got { grade } correct.</p>
-
 
 	<script>
 		var that = this;
@@ -34,7 +34,8 @@
 				],
 				youtubeID: "ABDE3482",
 				answer: "kind of..."
-			}
+			},
+			{}
 		];
 
 		getGrade(e){

@@ -9,7 +9,7 @@
 	<mail-editor if={ creatingEmail }></mail-editor>
 
 	<script>
-		// console.log(this);
+		//console.log('This tag', this);
 		var that = this;
 
 		this.creatingEmail = false;
@@ -20,7 +20,7 @@
 
 		this.closeEditor = function(event) {
 		  that.creatingEmail = false;
-			that.update();
+			that.update(); //why must update? why must use that?
 		};
 
 

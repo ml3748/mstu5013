@@ -1,7 +1,10 @@
 <mail-item>
 	<p>ITEM</p>
-	<span>{ subject }</span> | <span>{ toEmail }</span> | <span>{ body }</span>	<script>
-		<!-- console.log(this); -->
+	<span>{ subject }</span> | <span>{ toEmail }</span> | <span>{ body }</span>
+	<!-- <span> element can be used to group inline-elements; color a particular part -->
+
+	<script>
+		console.log(this);
 	</script>
 
 	<style>
