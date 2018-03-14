@@ -16,12 +16,14 @@
 
 	<script>
 		console.log(this);
+		//this.aaa= "mail-editor.tag"
 
 // 	this.closeEditor = function(event) {
 // 	this.parent.creatingEmail = false;
-// 	this.parent.update();
+// 	//this.parent.update();
 // };
-//第二种做法，把这个closeEditor的event从parent tag放到这里，然后去掉cancel button的parent字样；因为此时这个event不是属于parent tag的了
+//第二种做法，把这个closeEditor的event从parent tag放到这里，把that换成this，
+//然后去掉cancel button的parent字样；因为此时这个event不是属于parent tag的了
 
 		this.sendMessage = function(event) {
 			var newEmail = {
@@ -31,7 +33,7 @@
 			};
 			this.parent.emailList.push(newEmail);
 			this.parent.update(); //Why it works if I comment out this line?
-			this.parent.closeEditor();
+			this.parent.closeEditor();//call closeEditor function of parent
 		};
 	</script>
 
