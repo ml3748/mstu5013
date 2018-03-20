@@ -38,7 +38,7 @@
 				console.log('data received');
 				this.update();
 
-		  }.bind(this), 1500);
+		  }.bind(this), 30000);
 
 			console.log('getUserFromDB was called()');
 		};
