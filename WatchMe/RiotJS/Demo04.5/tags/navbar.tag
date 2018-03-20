@@ -7,13 +7,14 @@
 		this.user = {
 			first: "Anonymous",
 			last: ""
-		};
+		}; //default value
 
 		this.on('update', function(event){
-		  this.user.first = this.opts.userfirst || "Anonymous";
+		  this.user.first = this.opts.userfirst || "Anonymous"; //if user.first doesn't exist, print "Anonymous"
 			this.user.last = this.opts.userlast || "";
 		});
-		
+		//whenever the page updates, call this function
+
 	</script>
 
 	<style>

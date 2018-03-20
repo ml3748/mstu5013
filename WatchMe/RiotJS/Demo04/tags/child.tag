@@ -12,7 +12,7 @@
 		});
 
 		this.createEvent = function(event) {
-		  this.trigger('jinsevent');
+		  this.trigger('jinsevent'); //点击button以后就触发了createEvent function，which triggers jinsevent(this.on)
 			this.unmount();
 		};
 
@@ -20,10 +20,17 @@
 		  console.log('A:', this);
 			this.x = "Holiday";
 
+			var aaa = {
+				animal: "tiger",
+				update: function() {
+					alert(this.animal); //why the system knows "this" is "aaa"?
+ 				}
+			};
+
 			setTimeout(function(){
 			  console.log('B:', this);
 				this.update();
-			}.bind(tag), 500);
+			}.bind(aaa), 500);
 
 		};
 
