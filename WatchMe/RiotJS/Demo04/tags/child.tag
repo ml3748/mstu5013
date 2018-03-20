@@ -7,6 +7,8 @@
 		// console.log('child.tag', this.parent.x);
 		var tag = this;
 
+		this;
+
 		this.on('jinsevent', function(event){
 		  alert('I heard jinsevent');
 		});
@@ -22,7 +24,7 @@
 
 			var aaa = {
 				animal: "tiger",
-				update: function() {
+				update: function() { //aaa.update = function(){};
 					alert(this.animal); //why the system knows "this" is "aaa"?
  				}
 			};
@@ -30,7 +32,8 @@
 			setTimeout(function(){
 			  console.log('B:', this);
 				this.update();
-			}.bind(aaa), 500);
+			}.bind(aaa), 500); //bind is outside setTimeout level, so it points out to var aaa.
+			//I can bind anything.
 
 		};
 

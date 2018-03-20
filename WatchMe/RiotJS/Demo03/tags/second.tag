@@ -15,15 +15,14 @@
 		this.username = "no name";
 
 		this.getDataFromDatabase = function(event) {
-		 event.preventUpdate = true;//what exactly does it prevent?
+		 event.preventUpdate = true;
 
 			var data = "xyz"; //why it cannot be defined in setTimeout?
 
 			setTimeout(function(){
-			  data = "jmk2142";
-				that.username = data;
+				that.username = "jmk2142";
 				that.update();
-			}, 3000);
+			}, 1000);
 
 		};
 

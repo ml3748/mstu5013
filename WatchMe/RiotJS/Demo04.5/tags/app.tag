@@ -38,13 +38,13 @@
 				console.log('data received');
 				this.update();
 
-		  }.bind(this), 30000);
+		  }.bind(this), 3000);
 
 			console.log('getUserFromDB was called()');
 		};
 
 
-		this.getUserFromDB(); //because HTML in this tag does not have event listener? call when the page loads?
+		this.getUserFromDB(); //because HTML in this tag does not have event listener, call when the page loads.
 
 
 		//sequence: all tags have initialized value

@@ -17,29 +17,56 @@
 
 		// Demonstration Data
 		this.chatLog = [
-			{ message: "Hello" }, { message: "Hola" }, { message: "Konnichiwa" }
+			{ message: "LOADING DATA" }
 		]; //fake data
 
 //Here - fetch data from the database
+//In here, I'll set chatLog to the db data
+
+		messagesRef.on('value', function(snapshot) {
+			var data = snapshot.val();
+
+			that.chatLog = [];//如果没有这行，所有东西都会redundant
+
+			for (key in data) {
+				that.chatLog.push(data[key]);
+			}
+
+			that.update();
+		});
 
 		sendMsg(e) {
 			if (e.type == "keypress" && e.key !== "Enter") {
-				e.preventUpdate = true; // Prevents riot from auto update. //Q1: why we need this?
+				e.preventUpdate = true; // Prevents riot from auto update.
 				return false; // Short-circuits function (function exits here, does not continue.)
 				console.log('keypress');//only excute if commenting out "return false"
 			}
 			//Q2: but if we delete onkeypress eventlistner, it won't update neither
+			if (this.refs.messageInput.value !== "") {
 
-			var msg = {
-				message: this.refs.messageInput.value
-			};
-			this.chatLog.push(msg);
+				var msg = {
+					message: this.refs.messageInput.value
+				}
 
-			// messageRef.child('/a').set(msg); manually add child tag, not possible for twitter
-			messageRef.push.set(msg)
+				messagesRef.push(msg); //if you use "set", then it replaces everything in the database
+				// messagesRef.child('/a').set(msg); manually add child tag, not possible for twitter
+
+
+			}
+
+			//原来没有database的时候，通过这个codes来sendMsg
+			// var msg = {
+			// 	message: this.refs.messageInput.value
+			// };
+			// this.chatLog.push(msg);
+
 
 			this.clearInput(); //call clearInput function
 		}
+
+		this.on('update', function() {
+			console.log('update was called');
+		});
 
 		//Q3: why do not use that.update?
 

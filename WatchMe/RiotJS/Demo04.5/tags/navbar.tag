@@ -1,6 +1,6 @@
 <navbar>
 	<strong>navbar.tag</strong>
-	<span>Hello { user.first } { user.last }!</span>
+	<span>Hello { opts.userfirst } { user.last }!</span>
 
 	<script>
 		console.log('navbar.tag', this);
