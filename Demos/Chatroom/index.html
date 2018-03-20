@@ -31,6 +31,8 @@
 
 		// Global Cached -> Most useful Firebase refs accessible anywhere.
 		// HERE
+		var database = firebase.database();
+		var messagesRef = database.ref('/messages');
 
 		// Initialize Riot
 		riot.mount('*');
