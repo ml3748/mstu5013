@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Chatroom</title>
+	<title>MSTU CHAT!</title>
 </head>
 <body>
-<<<<<<< HEAD
 	<app></app>
 
 	<script src="tags/app.tag" type="riot/tag"></script>
 	<script src="tags/message.tag" type="riot/tag"></script>
+	<script src="tags/user-page.tag" type="riot/tag"></script>
 
 	<!-- I saved the libraries locally, so as not to hit the CDN fetch limit during testing. -->
 	<script src="js/riot+compiler.js"></script>
@@ -20,36 +20,24 @@
 
 	<script>
 	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyBEbOWvV5Fig3eNvWVWValUExl-_WBBxEo",
-	    authDomain: "mstu5013.firebaseapp.com",
-	    databaseURL: "https://mstu5013.firebaseio.com",
-	    projectId: "mstu5013",
-	    storageBucket: "mstu5013.appspot.com",
-	    messagingSenderId: "953045445181"
-	  };
-	  firebase.initializeApp(config);
+		// You will want to copy paste your own database configuration here.
+		var config = {
+	 apiKey: "AIzaSyCgUHS0NoDU1sdcar1o0N6ZF785pZ0bHJ4",
+	 authDomain: "jin-s-chatroom-demo.firebaseapp.com",
+	 databaseURL: "https://jin-s-chatroom-demo.firebaseio.com",
+	 projectId: "jin-s-chatroom-demo",
+	 storageBucket: "jin-s-chatroom-demo.appspot.com",
+	 messagingSenderId: "628911036968"
+ };
+  firebase.initializeApp(config);
 
 		// Global Cached -> Most useful Firebase refs accessible anywhere.
-		// HERE
 		var database = firebase.database();
-		var messagesRef = database.ref('/messages');
+		var messagesRef = database.ref('messages');
 
 		// Initialize Riot
 		riot.mount('*');
 
 	</script>
-=======
-	<ul>
-		<li><a href="./noFirebase">Demo without Firebase (base Riot code)</a></li>
-		<li><a href="./withFirebase">Demo with Firebase (hooked up with basic functionality)</a></li>
-	</ul>
-	<style>
-		html, body {
-			font-family: Helvetica;
-			font-size: 1em;
-		}
-	</style>
->>>>>>> upstream/master
 </body>
 </html>

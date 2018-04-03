@@ -4,10 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Chatroom</title>
+	<title>MSTU CHAT!</title>
 </head>
 <body>
-<<<<<<< HEAD
 	<app></app>
 
 	<script src="tags/app.tag" type="riot/tag"></script>
@@ -20,6 +19,7 @@
 
 	<script>
 	  // Initialize Firebase
+		// You will want to copy paste your own database configuration here.
 	  var config = {
 	    apiKey: "AIzaSyBEbOWvV5Fig3eNvWVWValUExl-_WBBxEo",
 	    authDomain: "mstu5013.firebaseapp.com",
@@ -31,25 +31,12 @@
 	  firebase.initializeApp(config);
 
 		// Global Cached -> Most useful Firebase refs accessible anywhere.
-		// HERE
 		var database = firebase.database();
-		var messagesRef = database.ref('/messages');
+		var messagesRef = database.ref('messages');
 
 		// Initialize Riot
 		riot.mount('*');
 
 	</script>
-=======
-	<ul>
-		<li><a href="./noFirebase">Demo without Firebase (base Riot code)</a></li>
-		<li><a href="./withFirebase">Demo with Firebase (hooked up with basic functionality)</a></li>
-	</ul>
-	<style>
-		html, body {
-			font-family: Helvetica;
-			font-size: 1em;
-		}
-	</style>
->>>>>>> upstream/master
 </body>
 </html>

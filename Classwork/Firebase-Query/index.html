@@ -4,19 +4,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Chatroom</title>
+	<title>MSTU ZOO</title>
 </head>
 <body>
-<<<<<<< HEAD
+
+	<!-- Riot Mount Point -->
 	<app></app>
 
+	<!-- Riot TAGS -->
 	<script src="tags/app.tag" type="riot/tag"></script>
-	<script src="tags/message.tag" type="riot/tag"></script>
+	<script src="tags/animal.tag" type="riot/tag"></script>
 
-	<!-- I saved the libraries locally, so as not to hit the CDN fetch limit during testing. -->
+	<!-- Riot + Firebase IMPORT -->
 	<script src="js/riot+compiler.js"></script>
 	<script src="js/firebase.js"></script>
-	<!-- <script src="js/utilities.js"></script> -->
 
 	<script>
 	  // Initialize Firebase
@@ -30,26 +31,13 @@
 	  };
 	  firebase.initializeApp(config);
 
-		// Global Cached -> Most useful Firebase refs accessible anywhere.
-		// HERE
+		// Firebase Cached References
 		var database = firebase.database();
-		var messagesRef = database.ref('/messages');
+		var rootRef = database.ref('/');
 
-		// Initialize Riot
+		// Initialize RiotJS
 		riot.mount('*');
-
 	</script>
-=======
-	<ul>
-		<li><a href="./noFirebase">Demo without Firebase (base Riot code)</a></li>
-		<li><a href="./withFirebase">Demo with Firebase (hooked up with basic functionality)</a></li>
-	</ul>
-	<style>
-		html, body {
-			font-family: Helvetica;
-			font-size: 1em;
-		}
-	</style>
->>>>>>> upstream/master
+
 </body>
 </html>
