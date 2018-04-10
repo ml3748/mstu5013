@@ -33,7 +33,7 @@
 			var updates = {};
 					updates['messages/' + that.msg.id] = msg;
 					updates['messagesByUser/' + that.msg.author + '/' + that.msg.id] = msg;
-			database.ref().update(updates);
+			database.ref().update(updates); //lost argument?
 		}
 
 		editMsg(e) {

@@ -5,12 +5,13 @@
 	<div>
 		<input type="text" ref="animalName" placeholder="Enter animal">
 		<!-- <input type="text" ref=""> -->
-		<button type="button">SAVE</button>
+		<button type="button" onclick={ saveAnimals }>SAVE</button>
 	</div>
 
 	<!-- Animal QUERY -->
 	<div>
-		<input type="text" ref="animalQuery" placeholder="Enter query">
+		<input type="text" ref="animalQuery" placeholder="Enter query" onkeyup={ animalSearch }>
+		<!-- onchange -->
 		<button type="button">SEARCH</button>
 	</div>
 
@@ -23,8 +24,42 @@
 
 	<script>
 		var tag = this;
-
+		var animalsRef = rootRef.child('animals');
 		this.animals = [];
+
+
+
+		saveAnimals(e) {
+			var key = animalsRef.push().key;
+
+			var animal = {
+				typeOfAnimal: this.refs.animalName.value.toLowerCase(),
+				id: key
+			};
+
+			animalsRef.child(key).set(animal);
+
+		};
+
+		animalSearch(e) {
+			console.log(this.refs.animalQuery.value);
+			animalsRef.orderByChild('typeOfAnimal').startAt(this.refs.animalQuery.value).once('value', function(snap){
+				//on or once
+				var data = snap.val(); // + > numberstring(是string不是真正的number) > zzz > a crazy unicode？？
+
+				tag.animals = Object.values(data).sort(function(a,b){
+					return a.typeOfAnimal > b.typeOfAnimal;
+				}); //change an object into array automatically
+
+				console.log(data);
+				console.log(tag.animals);
+
+				tag.update(); //without it, the array will not be printed
+
+			});
+
+
+		};
 
 		/*****
 			ref.orderByChild('path').MODIFIERS.on('value', ...);
